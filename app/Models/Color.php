@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+
+class Color extends Model
+{
+    protected $fillable = [
+        'name',
+        'slug',
+        'hex_code',
+        'swatch_image',
+        'sort_order',
+        'is_active',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'sort_order' => 'integer',
+            'is_active' => 'boolean',
+        ];
+    }
+    public function variants(): HasMany
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+}
