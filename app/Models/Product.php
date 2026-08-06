@@ -84,4 +84,30 @@ class Product extends Model
         return $this->hasMany(ProductFeature::class)
             ->orderBy('sort_order');
     }
+    public function contentSections(): HasMany
+    {
+        return $this->hasMany(ProductContentSection::class)
+            ->orderBy('sort_order');
+    }
+    public function productRelations(): HasMany
+    {
+        return $this->hasMany(ProductRelation::class)
+            ->orderBy('sort_order');
+    }
+    public function collections(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Collection::class,
+            'collection_product'
+        )
+            ->withPivot('sort_order')
+            ->orderByPivot('sort_order');
+    }
+    public function promotions(): BelongsToMany
+{
+    return $this->belongsToMany(
+        Promotion::class,
+        'promotion_product'
+    );
+}
 }

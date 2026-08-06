@@ -64,4 +64,11 @@ public function products(): BelongsToMany
         return $this->hasMany(Category::class, 'parent_id')
             ->orderBy('sort_order');
     }
+    public function promotions(): BelongsToMany
+{
+    return $this->belongsToMany(
+        Promotion::class,
+        'promotion_category'
+    );
+}
 }

@@ -39,25 +39,18 @@ class ProductVariant extends Model
         ];
     }
 
-    /**
-     * Biến thể thuộc về một sản phẩm.
-     */
+ 
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
-    /**
-     * Màu sắc của biến thể.
-     */
+
     public function color(): BelongsTo
     {
         return $this->belongsTo(Color::class);
     }
 
-    /**
-     * Kích thước của biến thể.
-     */
     public function size(): BelongsTo
     {
         return $this->belongsTo(Size::class);

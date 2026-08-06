@@ -5,30 +5,38 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ProductContentSection extends Model
+class ProductRelation extends Model
 {
     protected $fillable = [
         'product_id',
-        'title',
-        'content',
-        'image',
+        'related_product_id',
+        'relation_type',
         'sort_order',
-        'open_by_default',
     ];
 
     protected function casts(): array
     {
         return [
             'sort_order' => 'integer',
-            'open_by_default' => 'boolean',
         ];
     }
 
     /**
-     * Khối nội dung này thuộc về một sản phẩm.
+     * Sản phẩm chính.
      */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    /**
+     * Sản phẩm được liên kết.
+     */
+    public function relatedProduct(): BelongsTo
+    {
+        return $this->belongsTo(
+            Product::class,
+            'related_product_id'
+        );
     }
 }
