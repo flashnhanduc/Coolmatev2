@@ -39,7 +39,7 @@ class ProductVariant extends Model
         ];
     }
 
- 
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
@@ -59,4 +59,23 @@ class ProductVariant extends Model
     {
         return $this->hasMany(ProductImage::class);
     }
+    public function cartItems(): HasMany
+    {
+        return $this->hasMany(CartItem::class);
+    }
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+    public function stockMovements(): HasMany
+    {
+        return $this->hasMany(StockMovement::class);
+    }
+    public function preferredWishlistItems(): HasMany
+{
+    return $this->hasMany(
+        WishlistItem::class,
+        'preferred_variant_id'
+    );
+}
 }

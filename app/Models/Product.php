@@ -104,10 +104,26 @@ class Product extends Model
             ->orderByPivot('sort_order');
     }
     public function promotions(): BelongsToMany
-{
-    return $this->belongsToMany(
-        Promotion::class,
-        'promotion_product'
-    );
-}
+    {
+        return $this->belongsToMany(
+            Promotion::class,
+            'promotion_product'
+        );
+    }
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function wishlistItems(): HasMany
+    {
+        return $this->hasMany(WishlistItem::class);
+    }
+    public function viewRecords(): HasMany
+    {
+        return $this->hasMany(RecentlyViewedProduct::class);
+    }
 }
