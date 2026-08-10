@@ -26,12 +26,14 @@ class Product extends Model
         'care_instructions',
         'audience',
         'status',
+        'is_featured',
         'published_at',
     ];
 
     protected function casts(): array
     {
         return [
+            'is_featured' => 'boolean',
             'rating_average' => 'decimal:2',
             'reviews_count' => 'integer',
             'sold_count' => 'integer',
