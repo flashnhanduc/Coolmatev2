@@ -23,6 +23,17 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ProductVariantSeeder::class,
             ProductImageSeeder::class,
+            ProductFeatureSeeder::class,
+            ProductRelationSeeder::class,
+            BannerSeeder::class,
+            CollectionSeeder::class,
+            ProductContentSectionSeeder::class,
+            BannerSeeder::class,
+            HomepageSectionSeeder::class,
+            PromotionSeeder::class,
+            PromotionTierSeeder::class,
+            PromotionCategorySeeder::class,
+
         ]);
     }
 }
