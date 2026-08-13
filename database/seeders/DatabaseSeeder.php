@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             PromotionSeeder::class,
             PromotionTierSeeder::class,
             PromotionCategorySeeder::class,
+            OrderStatusHistorySeeder::class,
 
         ]);
     }
