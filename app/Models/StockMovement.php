@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class StockMovement extends Model
 {
+    public const UPDATED_AT = null;
     protected $fillable = [
         'product_variant_id',
         'order_id',

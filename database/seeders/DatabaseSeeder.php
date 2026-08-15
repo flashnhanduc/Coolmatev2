@@ -34,7 +34,11 @@ class DatabaseSeeder extends Seeder
             PromotionTierSeeder::class,
             PromotionCategorySeeder::class,
             OrderStatusHistorySeeder::class,
-
+            CouponUsageSeeder::class,
+            PaymentSeeder::class,
+            ShipmentSeeder::class,
+            StockMovementSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }
