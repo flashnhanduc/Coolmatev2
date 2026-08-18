@@ -1,0 +1,107 @@
+.hero {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Chứa tất cả banner nằm ngang */
+.track {
+    display: flex;
+    width: 100%;
+}
+
+/* Mỗi slide chiếm đúng 100% chiều rộng */
+.slide {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+.heroImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Hai nút chuyển ảnh */
+.arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #fff;
+    font-size: 26px;
+    background: rgb(0 0 0 / 35%);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+        background-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.arrow:hover {
+    background: rgb(0 0 0 / 65%);
+}
+
+.previous {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Các chấm chọn ảnh */
+.dots {
+    position: absolute;
+    right: 0;
+    bottom: 18px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    background: rgb(255 255 255 / 55%);
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.activeDot {
+    width: 26px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+
+    .previous {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .dots {
+        bottom: 10px;
+    }
+}

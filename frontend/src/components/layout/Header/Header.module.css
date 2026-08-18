@@ -1,0 +1,180 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #fff;
+}
+
+.topBar {
+    color: #fff;
+    background: #24272c;
+}
+
+.topBarInner {
+    width: min(calc(100% - 48px), 1440px);
+    min-height: 30px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topLinks {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.topLinks a {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mainHeader {
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+}
+
+.mainHeaderInner {
+    width: min(calc(100% - 48px), 1440px);
+    min-height: 68px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr 360px;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    color: #111;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logoIcon {
+    margin-right: 7px;
+    font-size: 20px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+}
+
+.navLink {
+    position: relative;
+    padding: 25px 0;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 18px;
+    left: 0;
+    height: 2px;
+    background: #111;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.navLink:hover::after {
+    transform: scaleX(1);
+}
+
+.newLink {
+    color: #2f5acf;
+}
+
+.saleLink {
+    color: #e11d48;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.searchForm {
+    width: 220px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    border-radius: 999px;
+}
+
+.searchForm input {
+    width: 100%;
+    min-width: 0;
+    padding: 0 5px 0 16px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+.searchForm button,
+.iconButton {
+    display: grid;
+    place-items: center;
+    border: 0;
+    color: #111;
+    background: transparent;
+    cursor: pointer;
+}
+
+.searchForm button {
+    width: 42px;
+    height: 100%;
+}
+
+.iconButton {
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+}
+
+@media (max-width: 1100px) {
+    .mainHeaderInner {
+        grid-template-columns: 160px 1fr auto;
+    }
+
+    .navigation {
+        gap: 18px;
+    }
+
+    .searchForm {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .topBar {
+        display: none;
+    }
+
+    .mainHeaderInner {
+        width: calc(100% - 24px);
+        grid-template-columns: 1fr auto;
+    }
+
+    .navigation {
+        display: none;
+    }
+}
