@@ -1,0 +1,163 @@
+.section {
+    width: 100%;
+    margin: 0;
+    padding: 0 clamp(16px, 2.6vw, 52px) 50px;
+    background: #fff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card {
+    --move-x: 0px;
+    --move-y: 0px;
+
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    color: #fff;
+    background: #ddd;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /*
+     * scale lớn hơn 1 để khi ảnh chuyển động
+     * không làm lộ khoảng trắng ở cạnh.
+     */
+    transform:
+        translate3d(
+            var(--move-x),
+            var(--move-y),
+            0
+        )
+        scale(1.06);
+
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.card:hover .image {
+    transform:
+        translate3d(
+            var(--move-x),
+            var(--move-y),
+            0
+        )
+        scale(1.1);
+
+    transition: transform 0.12s ease-out;
+}
+
+/* Lớp tối giúp chữ dễ đọc hơn */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to top,
+        rgb(0 0 0 / 58%),
+        rgb(0 0 0 / 5%) 70%
+    );
+}
+
+.content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 28px;
+    pointer-events: none;
+}
+
+.content h2 {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: clamp(28px, 3vw, 48px);
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+}
+
+.buyButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 135px;
+    min-height: 43px;
+    padding: 10px 20px;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 15%);
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.buttonArrow {
+    font-size: 17px;
+    transition: transform 0.25s ease;
+}
+
+.card:hover .buyButton {
+    color: #fff;
+    background: #2f5acf;
+    transform: translateY(-2px);
+}
+
+.card:hover .buttonArrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 0 14px 35px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        aspect-ratio: 16 / 9;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .content h2 {
+        margin-bottom: 12px;
+        font-size: 28px;
+    }
+
+    .buyButton {
+        min-width: 115px;
+        min-height: 38px;
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+}
