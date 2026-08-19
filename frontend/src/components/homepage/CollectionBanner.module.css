@@ -1,0 +1,183 @@
+.section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+.banner {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 5;
+    overflow: hidden;
+    color: #fff;
+    background: #ddd;
+}
+
+.image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Lớp phủ giúp chữ bên trái dễ đọc */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        rgb(0 0 0 / 35%),
+        rgb(0 0 0 / 8%) 45%,
+        transparent 70%
+    );
+}
+
+/* Khu vực chứa tiêu đề và nút */
+
+.content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: clamp(28px, 3vw, 60px);
+    pointer-events: none;
+}
+
+.content h2 {
+    margin: 0 0 22px;
+    color: #fff;
+    font-size: clamp(36px, 4vw, 70px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 10px rgb(0 0 0 / 25%);
+}
+
+/* Chỉ nút MUA NGAY có thể nhấn */
+
+.buyButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-width: 155px;
+    min-height: 45px;
+    padding: 10px 22px;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 15%);
+    cursor: pointer;
+    pointer-events: auto;
+    text-decoration: none;
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.arrow {
+    font-size: 17px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+/* Hover chỉ hoạt động trên nút */
+
+.buyButton:hover {
+    color: #fff;
+    background: #2f5acf;
+    border-color: #2f5acf;
+    transform: translateY(-2px);
+}
+
+.buyButton:hover .arrow {
+    transform: translateX(5px);
+}
+
+.buyButton:focus-visible {
+    outline: 3px solid rgb(255 255 255 / 80%);
+    outline-offset: 3px;
+}
+
+/* Máy tính bảng */
+
+@media (max-width: 1024px) {
+    .banner {
+        aspect-ratio: 16 / 6;
+    }
+
+    .content h2 {
+        font-size: 44px;
+    }
+}
+
+/* Điện thoại */
+
+@media (max-width: 768px) {
+    .banner {
+        aspect-ratio: 4 / 3;
+    }
+
+    .image {
+        object-position: center;
+    }
+
+    .overlay {
+        background: linear-gradient(
+            to top,
+            rgb(0 0 0 / 55%),
+            transparent 65%
+        );
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .content h2 {
+        margin-bottom: 15px;
+        font-size: 32px;
+        letter-spacing: -0.5px;
+    }
+
+    .buyButton {
+        min-width: 118px;
+        min-height: 39px;
+        gap: 10px;
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+
+    .arrow {
+        font-size: 15px;
+    }
+}
+
+/* Điện thoại nhỏ */
+
+@media (max-width: 480px) {
+    .banner {
+        aspect-ratio: 1 / 1;
+    }
+
+    .content h2 {
+        font-size: 28px;
+    }
+}
