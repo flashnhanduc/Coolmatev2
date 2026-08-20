@@ -25,7 +25,6 @@
     object-position: center;
 }
 
-/* Lớp phủ giúp chữ bên trái dễ đọc */
 
 .overlay {
     position: absolute;
@@ -40,7 +39,6 @@
     );
 }
 
-/* Khu vực chứa tiêu đề và nút */
 
 .content {
     position: absolute;
@@ -64,7 +62,6 @@
     text-shadow: 0 2px 10px rgb(0 0 0 / 25%);
 }
 
-/* Chỉ nút MUA NGAY có thể nhấn */
 
 .buyButton {
     display: inline-flex;
@@ -98,7 +95,7 @@
     transition: transform 0.25s ease;
 }
 
-/* Hover chỉ hoạt động trên nút */
+
 
 .buyButton:hover {
     color: #fff;
