@@ -1,0 +1,243 @@
+.section {
+    width: 100%;
+    padding: 32px 32px 55px;
+    background: #fff;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.heading h2 {
+    margin: 0;
+    color: #111;
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.viewMore {
+    color: #111;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid #111;
+}
+
+.viewMore:hover {
+    color: #2f5acf;
+    border-color: #2f5acf;
+}
+
+.carousel {
+    position: relative;
+}
+
+.productList {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns:
+        calc((100% - 48px) / 4);
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.productList::-webkit-scrollbar {
+    display: none;
+}
+
+.productCard {
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #f2f2f2;
+    border-radius: 10px;
+}
+
+.imageLink {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.productImage {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+.primaryImage {
+    z-index: 1;
+    opacity: 1;
+}
+
+.hoverImage {
+    z-index: 2;
+    opacity: 0;
+    transform: scale(1.02);
+}
+
+.productCard:hover .primaryImage {
+    opacity: 0;
+}
+
+.productCard:hover .hoverImage {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    padding: 5px 9px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    background: #000;
+    border-radius: 999px;
+}
+
+.productInformation {
+    padding-top: 12px;
+}
+
+.colorList {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 20px;
+    margin-bottom: 7px;
+}
+
+.color {
+    width: 18px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    box-shadow: 0 0 0 2px #fff;
+}
+
+.productName {
+    min-height: 40px;
+    margin: 0 0 7px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.productName a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.productName a:hover {
+    color: #2f5acf;
+}
+
+.priceGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.salePrice {
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.comparePrice {
+    color: #999;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+.navigationButton {
+    position: absolute;
+    top: 42%;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    color: #fff;
+    font-size: 17px;
+    background: #111;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navigationButton:hover {
+    background: #2f5acf;
+    transform: translateY(-50%) scale(1.06);
+}
+
+.previousButton {
+    left: -20px;
+}
+
+.nextButton {
+    right: -20px;
+}
+
+@media (max-width: 1024px) {
+    .productList {
+        grid-auto-columns:
+            calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 25px 14px 40px;
+    }
+
+    .heading h2 {
+        font-size: 20px;
+    }
+
+    .productList {
+        grid-auto-columns: 82%;
+        gap: 10px;
+    }
+
+    .navigationButton {
+        width: 34px;
+        height: 34px;
+    }
+
+    .previousButton {
+        left: -8px;
+    }
+
+    .nextButton {
+        right: -8px;
+    }
+}
