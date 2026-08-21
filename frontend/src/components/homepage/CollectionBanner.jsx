@@ -2,35 +2,37 @@ import { Link } from 'react-router-dom';
 import styles from './CollectionBanner.module.css';
 
 function CollectionBanner({
-    title,
-    image="/images/collections/pickleball-banner.jpg",
+    image,
+    mobileImage,
+    alt,
     link,
+    buttonText = 'MUA NGAY',
 }) {
     return (
         <section className={styles.section}>
             <div className={styles.banner}>
-                <img
-                    className={styles.image}
-                    src={image}
-                    alt={title}
-                />
+                <picture>
+                    {mobileImage && (
+                        <source
+                            media="(max-width: 768px)"
+                            srcSet={mobileImage}
+                        />
+                    )}
 
-                <div className={styles.overlay} />
+                    <img
+                        className={styles.image}
+                        src={image}
+                        alt={alt}
+                    />
+                </picture>
 
-                <div className={styles.content}>
-                    <h2>{title}</h2>
-
-                    <Link
-                        to={link}
-                        className={styles.buyButton}
-                    >
-                        MUA NGAY
-
-                        <span className={styles.arrow}>
-                            →
-                        </span>
-                    </Link>
-                </div>
+                <Link
+                    to={link}
+                    className={styles.button}
+                >
+                    {buttonText}
+                    <span aria-hidden="true">→</span>
+                </Link>
             </div>
         </section>
     );

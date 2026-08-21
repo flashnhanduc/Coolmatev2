@@ -13,6 +13,7 @@ const pickleballProducts = [
         comparePrice: 499000,
         badge: null,
         colors: ['#ffffff', '#d9d9d9'],
+        sizes: ['S', 'M', 'L', 'XL'],
     },
     {
         id: 2,
@@ -25,6 +26,7 @@ const pickleballProducts = [
         comparePrice: null,
         badge: 'BÁN CHẠY',
         colors: ['#ffffff', '#111111'],
+        sizes: ['S', 'M', 'L', 'XL'],
     },
     {
         id: 3,
@@ -37,6 +39,7 @@ const pickleballProducts = [
         comparePrice: null,
         badge: null,
         colors: ['#ffffff', '#2f5acf'],
+        sizes: ['S', 'M', 'L', 'XL'],
     },
     {
         id: 4,
@@ -49,16 +52,17 @@ const pickleballProducts = [
         comparePrice: 399000,
         badge: 'BÁN CHẠY',
         colors: ['#111111', '#ffffff', '#aaaaaa'],
+        sizes: ['S', 'M', 'L', 'XL'],
     },
 ];
 
 function ProductCarousel({
-    title="SẢN PHẨM PICKLEBALL",
-    viewAllLink="/collections/pickleball",
+    title = "SẢN PHẨM PICKLEBALL",
+    viewAllLink = "/collections/pickleball",
     products = pickleballProducts,
 }) {
     const productListRef = useRef(null);
-    
+
     function scrollProducts(direction) {
         const productList = productListRef.current;
 
@@ -83,7 +87,9 @@ function ProductCarousel({
             price
         ) + 'đ';
     }
-
+    function handleQuickAdd(product, size) {
+        console.log('Thêm Sản Phẩm $ {product.name}, size ${size}');
+    }
     return (
         <section className={styles.section}>
             <div className={styles.heading}>
@@ -151,6 +157,26 @@ function ProductCarousel({
                                         {product.badge}
                                     </span>
                                 )}
+                                <div className={styles.quickAdd}>
+                                    <p className={styles.quickAddTitle}>
+                                        Thêm nhanh vào giỏ hàng +
+                                    </p>
+
+                                    <div className={styles.sizeList}>
+                                        {product.sizes.map((size) => (
+                                            <button
+                                                key={size}
+                                                type="button"
+                                                className={styles.sizeButton}
+                                                onClick={() =>
+                                                    handleQuickAdd(product, size)
+                                                }
+                                            >
+                                                {size}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
 
                             <div
