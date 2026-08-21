@@ -1,0 +1,306 @@
+.footer {
+    width: 100%;
+    padding: 34px clamp(20px, 2.6vw, 52px) 24px;
+    color: #fff;
+    background-color: #000;
+}
+
+.topSection {
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 1.1fr)
+        minmax(300px, 1fr)
+        minmax(260px, 0.8fr);
+    gap: 50px;
+    align-items: center;
+}
+
+.feedback h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.feedback p {
+    max-width: 480px;
+    margin: 0 0 18px;
+    color: #ddd;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.feedbackButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    min-height: 38px;
+    padding: 8px 22px;
+
+    color: #111;
+    background-color: #fff;
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.feedbackButton:hover {
+    color: #fff;
+    background-color: #2f45d8;
+    transform: translateY(-2px);
+}
+
+.contactInformation {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    color: #fff;
+    text-decoration: none;
+}
+
+.contactIcon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+}
+
+.contactItem span {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.contactItem small {
+    font-size: 12px;
+}
+
+.contactItem strong {
+    font-size: 16px;
+}
+
+.socialList {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.socialList a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 21px;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.socialList a:hover {
+    color: #000;
+    background-color: #fff;
+    transform: translateY(-3px);
+}
+
+.socialList .zaloIcon {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    margin: 28px 0;
+    background-color: #333;
+}
+
+.navigation {
+    display: grid;
+    grid-template-columns:
+        0.8fr 1fr 0.8fr 0.9fr 1.35fr;
+    gap: 45px;
+}
+
+.column {
+    min-width: 0;
+}
+
+.column h3 {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.column .secondaryTitle {
+    margin-top: 30px;
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.linkList a {
+    color: #d4d4d4;
+    font-size: 12px;
+    line-height: 1.4;
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.linkList a:hover {
+    color: #fff;
+    padding-left: 4px;
+}
+
+.addressColumn address {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    color: #d4d4d4;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1.55;
+}
+
+.addressColumn p {
+    margin: 0;
+}
+
+.addressColumn strong {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.bottomSection {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-top: 45px;
+    padding-top: 22px;
+    border-top: 1px solid #222;
+}
+
+.bottomSection p {
+    max-width: 900px;
+    margin: 4px 0;
+    color: #ddd;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.certifications {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.certifications span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 35px;
+    padding: 5px 10px;
+
+    color: #fff;
+    border: 1px solid #777;
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+    .topSection {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .socialList {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+
+    .navigation {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 18px 20px;
+    }
+
+    .topSection {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .socialList {
+        grid-column: auto;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .navigation {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 24px;
+    }
+
+    .addressColumn {
+        grid-column: 1 / -1;
+    }
+
+    .bottomSection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .navigation {
+        grid-template-columns: 1fr;
+    }
+
+    .addressColumn {
+        grid-column: auto;
+    }
+
+    .contactItem strong {
+        font-size: 14px;
+    }
+}

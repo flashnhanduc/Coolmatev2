@@ -5,6 +5,7 @@ import GenderBanners from '../../components/homepage/GenderBanners.jsx';
 import CollectionBanner from '../../components/homepage/CollectionBanner.jsx';
 import ProductCarousel from '../../components/homepage/ProductCarousel.jsx';
 import { underwearProducts, runningProducts } from '../../data/homeProducts.js';
+import CoolClubSection from '../../components/homepage/CoolClubSection.jsx';
 const heroBanner = {
     label: 'COOLMATE ACTIVE',
     title: 'X2 CoolCash | Mua 3 tặng 1',
@@ -47,6 +48,7 @@ function HomePage() {
                 viewAllLink="/collections/quan-lot-nam"
                 products={runningProducts}
             />
+            <CoolClubSection />
         </>
     );
 }
