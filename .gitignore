@@ -25,3 +25,9 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+# Node dependencies
+/node_modules/
+/frontend/node_modules/
+
+# Frontend build
+/frontend/dist/
